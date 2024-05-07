@@ -1,37 +1,15 @@
-import { Slot } from 'expo-router'
-import { useEffect, type FC } from 'react'
-import { StreamChat } from 'stream-chat'
-import { Chat, OverlayProvider } from 'stream-chat-expo'
+import { Stack } from 'expo-router'
+import type { FC } from 'react'
 
-const client = StreamChat.getInstance('tvntpnshpntu')
+import { ChatProvider } from '@/providers/chat-provider'
 
 const HomeLayout: FC = () => {
-  useEffect(() => {
-    const connect = async () => {
-      await client.connectUser(
-        {
-          id: 'jDoe',
-          name: 'John Doe',
-          image: 'https://i.imgur.com/fR9Jz14.png'
-        },
-        client.devToken('jDoe')
-      )
-
-      // const channel = client.channel('messaging', 'the_park', {
-      //   name: 'The Park'
-      // })
-      // await channel.watch()
-    }
-
-    connect()
-  })
-
   return (
-    <OverlayProvider>
-      <Chat client={client}>
-        <Slot />
-      </Chat>
-    </OverlayProvider>
+    <ChatProvider>
+      <Stack>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+      </Stack>
+    </ChatProvider>
   )
 }
 

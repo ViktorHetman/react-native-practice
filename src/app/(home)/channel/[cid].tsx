@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router'
 import { useEffect, useState, type FC } from 'react'
 import { ActivityIndicator } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { Channel as ChannelType } from 'stream-chat'
 import {
   Channel,
@@ -30,7 +31,9 @@ const ChannelScreen: FC = () => {
   return (
     <Channel channel={channel}>
       <MessageList />
-      <MessageInput />
+      <SafeAreaView edges={['bottom']}>
+        <MessageInput />
+      </SafeAreaView>
     </Channel>
   )
 }
