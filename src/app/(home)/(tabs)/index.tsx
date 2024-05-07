@@ -1,8 +1,11 @@
 import type { FC } from 'react'
-import { Text } from 'react-native'
+import { ChannelList } from 'stream-chat-expo'
+import { router } from 'expo-router'
 
 const MainTabScren: FC = () => {
-  return <Text>Main Tab</Text>
+  return (
+    <ChannelList onSelect={channel => router.push(`/channel/${channel.cid}`)} />
+  )
 }
 
 export default MainTabScren
