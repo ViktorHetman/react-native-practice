@@ -1,8 +1,13 @@
-import { Stack } from 'expo-router'
 import type { FC } from 'react'
+import { Slot } from 'expo-router'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const RootLayout: FC = () => {
-  return <Stack />
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Slot />
+    </GestureHandlerRootView>
+  )
 }
 
 export default RootLayout

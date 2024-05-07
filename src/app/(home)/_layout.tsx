@@ -1,8 +1,8 @@
-import { Stack } from 'expo-router'
+import { Slot } from 'expo-router'
 import type { FC } from 'react'
 
 const HomeLayout: FC = () => {
-  return <Stack />
+  return <Slot />
 }
 
 export default HomeLayout
